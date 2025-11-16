@@ -40,8 +40,8 @@ services:
       DATABASE_URL: postgresql+asyncpg://codeguard:codeguard@postgres:5432/codeguard
       QDRANT_HOST: qdrant
       QDRANT_PORT: 6333
-      SECRET_KEY: ${SECRET_KEY:-change-me-in-production}
-      DEBUG: "true"
+      SECRET_KEY: ${SECRET_KEY:${env.SECRET_KEY}}
+      DEBUG: ${DEBUG:${env.DEBUG}}
     ports:
       - "8000:8000"
     depends_on:

@@ -15,6 +15,7 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore",
+        env_ignore_empty=True,
     )
 
     # Application
@@ -25,12 +26,19 @@ class Settings(BaseSettings):
 
     # API
     api_v1_prefix: str = "/api/v1"
-    secret_key: str = Field(..., min_length=32)
+    secret_key: str = Field(
+        default="change-me-in-production-minimum-32-characters-long",
+        min_length=32,
+        description="Secret key for JWT tokens and encryption (must be at least 32 characters)",
+    )
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
 
     # Database
-    database_url: str = Field(..., description="PostgreSQL connection URL")
+    database_url: str = Field(
+        default="postgresql+asyncpg://codeguard:codeguard@localhost:5432/codeguard",
+        description="PostgreSQL connection URL",
+    )
     postgres_user: str = "codeguard"
     postgres_password: str = "codeguard"
     postgres_db: str = "codeguard"
@@ -86,6 +94,19 @@ class Settings(BaseSettings):
     def parse_cors_origins(cls, v: str) -> List[str]:
         """Parse comma-separated CORS origins."""
         return [origin.strip() for origin in v.split(",") if origin.strip()]
+
+    @field_validator("secret_key")
+    @classmethod
+    def validate_secret_key(cls, v: str) -> str:
+        """Validate secret key and warn if using default."""
+        if v == "change-me-in-production-minimum-32-characters-long":
+            import warnings
+            warnings.warn(
+                "Using default SECRET_KEY! Change this in production for security.",
+                UserWarning,
+                stacklevel=2,
+            )
+        return v
 
     @property
     def database_url_sync(self) -> str:
