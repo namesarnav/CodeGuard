@@ -20,8 +20,6 @@ AI-powered Codebase Vulnerability Scanner, Reviewer, and Auto-Commenter using RA
 - **LLM**: Ollama (local) + OpenAI (fallback)
 - **Database**: PostgreSQL (SQLModel)
 - **Vector DB**: Qdrant
-- **Infrastructure**: Terraform → AWS (ECS, RDS, ALB, S3, ECR)
-- **CI/CD**: GitHub Actions
 
 ## Quick Start
 
