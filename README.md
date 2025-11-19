@@ -4,14 +4,13 @@ AI-powered Codebase Vulnerability Scanner, Reviewer, and Auto-Commenter using RA
 
 ## Features
 
-- 🔍 **Vulnerability Scanning**: Detect OWASP Top 10, CWE patterns, insecure functions, hardcoded secrets, weak crypto, SQL injection, XSS, RCE, and more
-- 📝 **Code Review**: AI-powered suggestions for performance, readability, idioms, refactoring, and design patterns
-- 💬 **Auto-Commenting**: Automatically add inline comments explaining complex logic and edge cases
-- 🧠 **RAG-Powered**: Uses Retrieval-Augmented Generation for context-aware analysis
-- 🚀 **Multi-Language Support**: Python, JavaScript, TypeScript, Java, Go, Rust, C/C++, PHP, Ruby, and more
-- 📊 **Interactive Dashboard**: React-based web interface with Monaco Editor for code viewing
-- 🔧 **CLI Tool**: Command-line interface for quick scans
-- ☁️ **AWS Deployment**: Complete Terraform infrastructure for production deployment
+- **Vulnerability Scanning**: Detect OWASP Top 10, CWE patterns, insecure functions, hardcoded secrets, weak crypto, SQL injection, XSS, RCE, and more
+- **Code Review**: AI-powered suggestions for performance, readability, idioms, refactoring, and design patterns
+- **Auto-Commenting**: Automatically add inline comments explaining complex logic and edge cases
+- **RAG-Powered**: Uses Retrieval-Augmented Generation for context-aware analysis
+- **Multi-Language Support**: Python, JavaScript, TypeScript, Java, Go, Rust, C/C++, PHP, Ruby, and more
+- **Interactive Dashboard**: React-based web interface with Monaco Editor for code viewing
+- **CLI Tool**: Command-line interface for quick scans
 
 ## Tech Stack
 
